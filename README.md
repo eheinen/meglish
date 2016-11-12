@@ -1,6 +1,6 @@
 # Megli.sh
 
-In this first moment I'm testing the gem!
+**In this first moment I'm testing the gem!**
 
 Megli.sh is a super framework to be used with Calabash-Android
 
