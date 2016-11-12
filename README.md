@@ -4,7 +4,7 @@
 
 Megli.sh is a super framework to be used with Calabash-Android
 
-You don't need put scroll_down or scroll_up to find an element in order to interact with it anymore. 
+You don't need to put scroll_down or scroll_up to find an element in order to interact with it anymore. 
 Just use the commands and let Megli.sh works for you.
 
 ### Installation
