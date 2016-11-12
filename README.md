@@ -1,5 +1,7 @@
 # Megli.sh
 
+**In this first moment I'm testing the gem!**
+
 Megli.sh is a super framework to be used with Calabash-Android
 
 You don't need put scroll_down or scroll_up to find an element in order to interact with it anymore. 
