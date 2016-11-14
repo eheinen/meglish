@@ -1,3 +1,5 @@
+require 'meglish-log'
+
 module Meglish
     MELGISH_CONDITIONS = {
         clear_text: true,
@@ -5,7 +7,11 @@ module Meglish
         include_all: true,
         timeout: 30,
         confirm_alert: true
-    }
+    }.freeze
+
+    def build_index(_index)
+        _index.to_s.empty? ? '' : " index:#{_index} "
+    end
 
     def clear_text_element(_query, _options = {})
         touch_element(_query.strip, _options)
@@ -13,11 +19,11 @@ module Meglish
     end
 
     def element_enabled?(_query, _options = {})
-        get_element['enabled']
+        get_element(_query, _options)['enabled']
     end
 
     def element_visible?(_query, _options = {})
-        get_element['visible']
+        get_element(_query, _options)['visible']
     end
 
     def find_coordinate_element(_query, _options = {})
@@ -26,9 +32,10 @@ module Meglish
     end
 
     def find_element_on_screen(_query, _options = {})
+        hide_soft_keyboard
         _query = include_all(_query, _options)
         MeglishLog.new.log(_query)
-        wait_for_element_exists(_query, get_option(:timeout, _options))
+        wait_for_element_exists(_query, timeout: get_option(:timeout, _options))
         sleep 0.5
         scroll_to_element(_query, _options)
     end
@@ -93,11 +100,11 @@ module Meglish
     def set_date_element(_query_input, _date, _options = {})
         new_date = _date.match(/(^[\d]{4})\/([\d]{1,2})\/([\d]{1,2})/)
         year = new_date[1].to_i
-        month = (new_date[2].to_i) - 1
+        month = new_date[2].to_i - 1
         day = new_date[3].to_i
 
         touch_element(_query_input, _options)
-        query("DatePicker" ,{method_name: :updateDate, arguments: [year, month, day]})
+        query('DatePicker', method_name: :updateDate, arguments: [year, month, day])
         touch("MDButton id:'md_buttonDefaultPositive'") unless get_option(:confirm_alert, _options)
     end
 
@@ -147,7 +154,7 @@ module Meglish
     end
 
     def touch_element(_query, _options = {})
-	find_element_on_screen(_query, _options)
+        find_element_on_screen(_query, _options)
         touch(_query.strip)
     end
 
@@ -162,7 +169,7 @@ module Meglish
 
     def touch_and_keyboard_text_element(_query, _text, _options = {})
         touch_element(_query.strip, _options)
-        clear_text if get_element(:clear_text, _options)
+        clear_text if get_option(:clear_text, _options)
         keyboard_enter_text_element(_text, _options)
     end
 
@@ -183,7 +190,7 @@ module Meglish
     def wait_for_text_element(_query, _timeout = 10, _options = {})
         count = 0
         filled = ''
-        while (filled.nil? || filled.empty?)
+        while filled.nil? || filled.empty?
             return if count >= _timeout
             filled = text_element(_query, _options)
             sleep 1
@@ -236,14 +243,14 @@ module Meglish
     end
 
     def get_option(_option, _options)
-        default_value = ENV[_option]
+        default_value = ENV[_option[0, _option.length].upcase]
         default_value = MELGISH_CONDITIONS[_option] if default_value.nil? || default_value.empty?
         return default_value unless has_option?(_option, _options)
-        _options[option]
+        _options[_option]
     end
 
     def has_option?(_option, _options)
         return (_options[_option].nil? ? false : true) unless _options.nil? || _options.empty?
-        return false
+        false
     end
 end
