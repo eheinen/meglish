@@ -147,7 +147,8 @@ module Meglish
     end
 
     def touch_element(_query, _options = {})
-        touch_element(_query.strip, _options)
+	find_element_on_screen(_query, _options)
+        touch(_query.strip)
     end
 
     def touch_element_by_text_position(_query, _text, _options = {})
