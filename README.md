@@ -66,10 +66,10 @@ end
 
 When you call the method **get_product_list** without any argument or just a empty String, then the return will be:
 ```
-**"LinearLayout id:'product_list'"**
+"LinearLayout id:'product_list'"
 ```
 
 But, if pass an index like: **get_product_list(1)**, then the return will be:
 ```
-**"LinearLayout id:'product_list' index:1 "**
+"LinearLayout id:'product_list' index:1 "
 ```
