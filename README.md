@@ -1,7 +1,5 @@
 # Megli.sh
 
-**In this first moment I'm testing the gem!**
-
 Megli.sh is a super framework to be used with Calabash-Android
 
 #### Why use Megli.sh?
@@ -56,7 +54,9 @@ include Meglish
 
 If you want just navigate to element on screen without interact with it, you need to use the command: **find_element_on_screen(_query)**
 
-If you have a query that has more than one elements in result and you want to work with on element specifically you may use the command **build_index(_index)**. For instance:
+If you have a query that has more than one elements in result and you want to work with on element specifically you may use the command **build_index(_index)**. 
+
+For instance:
 
 ```
 def get_product_list(_index = '')
@@ -65,7 +65,11 @@ end
 ```
 
 When you call the method **get_product_list** without any argument or just a empty String, then the return will be:
+```
 **"LinearLayout id:'product_list'"**
+```
 
 But, if pass an index like: **get_product_list(1)**, then the return will be:
+```
 **"LinearLayout id:'product_list' index:1 "**
+```
