@@ -73,3 +73,7 @@ But, if pass an index like: **get_product_list(1)**, then the return will be:
 ```
 "LinearLayout id:'product_list' index:1 "
 ```
+
+### License
+
+The code licensed here under the GNU Affero General Public License, version 3 AGPL-3.0. GNU AGPL 3.0 License. Meglish has been developed by Eduardo Gomes Heinen.
