@@ -2,17 +2,17 @@
 
 Megli.sh is a super framework to be used with Calabash-Android
 
-#### Why use Megli.sh?
+### Why use Megli.sh?
 All commands wait for the query be visible in the screen to interact with and you don't need to put scroll_down or scroll_up to find an element anymore. Meglish navigate automatically to your element.
 Just use the commands and let Megli.sh works for you.
 
-### Installation
+## Installation
 In https://rubygems.org/gems/meglish you find the gem or just install:
 ```
 gem install meglish
 ```
 
-### Configuration
+## Configuration
 You can set the following values to manage globally the commands in your env.rb file:
 
 ```
@@ -50,7 +50,7 @@ World(Calabash::Android::Operations)
 include Meglish
 ```
 
-### Comands
+## Comands
 
 If you want just navigate to element on screen without interact with it, you need to use the command: **find_element_on_screen(_query)**
 
@@ -74,6 +74,6 @@ But, if pass an index like: **get_product_list(1)**, then the return will be:
 "LinearLayout id:'product_list' index:1 "
 ```
 
-### License
+## License
 
 The code licensed here under the GNU Affero General Public License, version 3 AGPL-3.0. GNU AGPL 3.0 License. Meglish has been developed by Eduardo Gomes Heinen.
