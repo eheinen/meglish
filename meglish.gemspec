@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'meglish'
-  s.version     = '1.0.10'
-  s.date        = '2016-11-14'
+  s.version     = '1.0.11'
+  s.date        = '2016-11-17'
   s.summary     = "Meglish is a super framework to Calabash-Android"
   s.description = "Meglish find automatically your elements inside your Android Apps"
   s.authors     = ["Eduardo Gomes Heinen"]

@@ -36,7 +36,6 @@ module Meglish
         _query = include_all(_query, _options)
         MeglishLog.new.log(_query)
         wait_for_element_exists(_query, timeout: get_option(:timeout, _options))
-        sleep 0.5
         scroll_to_element(_query, _options)
     end
 
@@ -110,6 +109,7 @@ module Meglish
 
     def scroll_to_element(_query, _to_top_first = false, _options = {})
         return unless get_option(:scroll_to_element, _options)
+        sleep 0.5
         hide_soft_keyboard
         unless (query(_query).first['rect']['height']).zero? && (query(_query).first['rect']['width']).zero?
             w, h = get_device_size
