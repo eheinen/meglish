@@ -107,7 +107,7 @@ module Meglish
         touch("MDButton id:'md_buttonDefaultPositive'") unless get_option(:confirm_alert, _options)
     end
 
-    def scroll_to_element(_query, _to_top_first = false, _options = {})
+    def scroll_to_element(_query, _options = {})
         return unless get_option(:scroll_to_element, _options)
         sleep 0.5
         hide_soft_keyboard
