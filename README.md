@@ -24,7 +24,7 @@ ENV['CONFIRM_ALERT'] = true
 ENV['MEGLISH_LOG'] = true
 ```
 
-- **Clear_text:** When you use the command **touch_and_keyboard_text_element**, if clear_text is **true** then Meglish will clear the field before to enter the text.  
+- **clear_text:** When you use the command **touch_and_keyboard_text_element**, if clear_text is **true** then Meglish will clear the field before to enter the text.  
 
 - **scroll_to_element:** This value is responsible for navigate to the element wherever it is. Use it carefully!  
 
