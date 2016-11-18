@@ -158,6 +158,11 @@ module Meglish
         touch(_query.strip)
     end
 
+    def touch_element_with_all(_query, _options = {})
+        find_element_on_screen(_query, _options)
+        touch(include_all(_query, options).strip)
+    end
+
     def touch_element_by_text_position(_query, _text, _options = {})
         text_el = get_element(_query, _options)['text']
         text_index = text_el.index(_text) + (_text.length / 2)
