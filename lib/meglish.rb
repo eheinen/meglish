@@ -104,7 +104,7 @@ module Meglish
 
         touch_element(_query_input, _options)
         query('DatePicker', method_name: :updateDate, arguments: [year, month, day])
-        touch("MDButton id:'md_buttonDefaultPositive'") unless get_option(:confirm_alert, _options)
+        touch("MDButton id:'md_buttonDefaultPositive'") if get_option(:confirm_alert, _options)
     end
 
     def scroll_to_element(_query, _options = {})
