@@ -132,6 +132,16 @@ module Meglish
         touch_element("DropDownListView child CustomFontTextView text:'#{_text}'", _options)
     end
 
+    def swipe_down(_scroll_amount)
+        if _scroll_amount < 4
+          _scroll_amount = 5
+        elsif _scroll_amount >= 50
+          _scroll_amount = 49
+        end
+        down = 50 + _scroll_amount
+        perform_action('drag', 50, 50, 50, down, 5)
+    end
+
     def swipe_left(_query)
         has_element = query(_query + ' parent HorizontalScrollView')
         _query = has_element.empty? ? _query : _query + ' parent HorizontalScrollView'
@@ -142,6 +152,16 @@ module Meglish
         has_element = query(_query + ' parent HorizontalScrollView')
         _query = has_element.empty? ? _query : _query + ' parent HorizontalScrollView'
         pan_right(query_string: _query)
+    end
+
+    def swipe_up(_scroll_amount)
+        if _scroll_amount < 4
+          _scroll_amount = 5
+        elsif _scroll_amount >= 50
+          _scroll_amount = 49
+        end
+        up = 50 + _scroll_amount
+        perform_action('drag', 50, 50, up, 50, 5)
     end
 
     def text_element(_query, _options = {})
