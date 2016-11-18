@@ -134,11 +134,6 @@ Get all elements present in the app
 elements = find_elements(query)
 ```
 
-If you want to get all visible elements in the app you can just execute it:
-```
-elements = find_elements(query).find_all { |x| x['visible'] }
-```
-
 If you just want to get all visible elements in the screen, the you need to use **get_elements** command.
 
 #### find_element_on_screen(query, options = {})
