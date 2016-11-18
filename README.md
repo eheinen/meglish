@@ -50,13 +50,37 @@ World(Calabash::Android::Operations)
 include Meglish
 ```
 
-## Comands
+## Commands
 
-If you want just navigate to element on screen without interact with it, you need to use the command: **find_element_on_screen(_query)**
+#### Base
+Almost all methods require an argument "**query**" and an optional hash of "**options**".
+In the query argument you will pass the path to the element. Example:  
+```
+query = "MDButton id:'md_buttonDefaultPositive'"
+```
+In the options argument you may pass the options described on Configuration section to control your elements. Example:  
+```
+touch_element(_query, include_all: false)
+touch_element(_query, { include_all: false, scroll_to_element: false })
+```
 
-If you have a query that has more than one elements in result and you want to work with on element specifically you may use the command **build_index(_index)**. 
+#### build_index(index)
+If you have a query that has more than one elements in result and you want to work with one element specifically you may use it.
+```
+# The query below should bring a list of elements:
+query = "RelativeLayout id='product_item_list'"
 
-For instance:
+# The query below should bring a new query: "RelativeLayout id='product_item_list' index: 0"
+first_element = query + build_index(0)
+```
+You may also use it to work with the PluoaMapper Gem: https://rubygems.org/gems/pluoa-mapper
+
+Let's assume our query now will be: 
+```
+query = "AppCompatButton id:'save'"
+```
+
+Another example:
 
 ```
 def get_product_list(_index = '')
@@ -73,6 +97,23 @@ But, if pass an index like: **get_product_list(1)**, then the return will be:
 ```
 "LinearLayout id:'product_list' index:1 "
 ```
+
+
+#### find_element_on_screen(query, options = {})
+Find the element in screen and navigate to it without interact with
+```
+find_element_on_screen(query)
+```
+
+#### get_elements(query, options = {})
+Find the element in the **visible** screen and return an array of elements. if your element is not found, the emthod will return an empty array.
+```
+element_array = get_elements(query)
+```
+
+
+## Improving
+Comment all methods and write how to use it.
 
 ## License
 
