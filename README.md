@@ -24,12 +24,17 @@ ENV['CONFIRM_ALERT'] = true
 ENV['MEGLISH_LOG'] = true
 ```
 
-**Clear_text:** When you use the command **touch_and_keyboard_text_element**, if clear_text is **true** then Meglish will clear the field before to enter the text.  
-**Scroll_to_element:** This value is responsible for navigate to the element wherever it is. Use it carefully!  
-**Include_all:** Used to merge the query if the word "all" in order to find the element wherever it is.  
-**Timeout:** Time to wait an element appear.  
-**Confirm_alert:** If a command is waiting for an alert, it will confirm it. For instance: Command **set_date_element**.  
-**Meglish_log:** Write in console the query in execution.  
+- **Clear_text:** When you use the command **touch_and_keyboard_text_element**, if clear_text is **true** then Meglish will clear the field before to enter the text.  
+
+- **Scroll_to_element:** This value is responsible for navigate to the element wherever it is. Use it carefully!  
+
+- **Include_all:** Used to merge the query if the word "all" in order to find the element wherever it is.  
+
+- **Timeout:** Time to wait an element appear.  
+
+- **Confirm_alert:** If a command is waiting for an alert, it will confirm it. For instance: Command **set_date_element**.  
+
+- **Meglish_log:** Write in console the query in execution.  
 
 You can use the values above in all commands. For instance:
 ```
