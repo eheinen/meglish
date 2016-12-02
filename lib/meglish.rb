@@ -10,7 +10,7 @@ module Meglish
     }.freeze
 
     def build_index(_index)
-        _index.to_s.empty? ? '' : " index:#{_index} "
+        _index.to_s.empty? ? ' ' : " index:#{_index} "
     end
 
     def clear_text_element(_query, _options = {})
