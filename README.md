@@ -116,6 +116,12 @@ Clear text in an input text field
 clear_text_element(query)
 ```
 
+#### element_checked?(query, options = {})
+Get element and return if the element is checked
+```
+element_checked?(query)
+```
+
 #### element_enabled?(query, options = {})
 Get element and return if the element is enabled
 ```
