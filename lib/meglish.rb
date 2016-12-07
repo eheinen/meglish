@@ -18,6 +18,10 @@ module Meglish
         clear_text
     end
 
+    def element_checked?(_query, _options = {})
+        get_element(_query, _options)['checked']
+    end
+
     def element_enabled?(_query, _options = {})
         get_element(_query, _options)['enabled']
     end
