@@ -176,7 +176,23 @@ long_press_and_touch_element(query, touch_element_query)
 
 #### scroll_to_top
 Scroll to page until reach out the top.
+```
+scroll_to_top
+```
 
+#### swipe_down(scroll_amount)
+Control the quantity of scroll needed.
+scroll_amount is between 5 and 49
+```
+swipe_down(10)
+```
+
+#### swipe_up(scroll_amount)
+Control the quantity of scroll needed.
+scroll_amount is between 5 and 49
+```
+swipe_up(10)
+```
 
 #### select_spinner_item_element(spinner_query, item_text, options = {})
 Select a text in a spinner.
