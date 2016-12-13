@@ -100,7 +100,7 @@ module Meglish
         touch_element(_touch_element_query, _options)
     end
 
-    def set_date_element(_query_input, _date, _options = {})
+    def set_date_element(_query_input, _date, _dialog_confim_button_query = "", _options = {})
         new_date = _date.match(/(^[\d]{4})\/([\d]{1,2})\/([\d]{1,2})/)
         year = new_date[1].to_i
         month = new_date[2].to_i - 1
@@ -108,7 +108,8 @@ module Meglish
 
         touch_element(_query_input, _options)
         query('DatePicker', method_name: :updateDate, arguments: [year, month, day])
-        touch("MDButton id:'md_buttonDefaultPositive'") if get_option(:confirm_alert, _options)
+        _dialog_confim_button_query = "MDButton id:'md_buttonDefaultPositive'" if _dialog_confim_button_query.empty?
+        touch(_dialog_confim_button_query) if get_option(:confirm_alert, _options)
     end
 
     def scroll_to_element(_query, _options = {})
