@@ -207,13 +207,15 @@ query = "AppCompatSpinner id:'countries'"
 select_spinner_item_element(query, "BRAZIL")
 ```
 
-#### set_date_element(query_input, date, options = {})
+#### set_date_element(query_input, date, _dialog_confim_button_query = '', options = {})
 Set a date in the DatePicker element with dialog.
 Date format is year/month/day - 1991/05/26.
+If your alert's confirm button is different of "MDButton id:'md_buttonDefaultPositive'" then just add the confirm button query in _dialog_confim_button_query.
 By default, the command closes the alert after input date, you can control it using parameter.
 ```
 set_date_element(query, "1992/05/26")
-set_date_element(query, "1992/05/26", confirm_alert: false)
+set_date_element(query, "1992/05/26", "AppCompatButton id:'material_dialog_positive'", confirm_alert: false)
+set_date_element(query, "1992/05/26", '', confirm_alert: false)
 ```
 
 #### touch_element(query, options = {})
