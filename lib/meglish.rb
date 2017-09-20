@@ -134,7 +134,7 @@ module Meglish
 
     def select_spinner_item_element(_spinner_query, _text, _options = {})
         touch_element(_spinner_query, _options)
-        touch_element("DropDownListView child CustomFontTextView text:'#{_text}'", _options)
+        touch_element("DropDownListView child * text:'#{_text}'", _options)
     end
 
     def swipe_down(_scroll_amount)
